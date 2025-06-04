@@ -1,31 +1,12 @@
 #include <iostream>
 #include <windows.h>
 
-#include "Character.h"
-#include "ExpTable.h"
-
+#include "GameManager.h"
 
 int main() {
     SetConsoleOutputCP(CP_UTF8);
-
-    ExpTable::init();
-
-    //Character ch("루미네", ElementType::Anemo);
-    //ch.printStatus();
-
-    //ch.gainExp(250);
-    //ch.tryBreakthrough();
-
-    //ch.printStatus();
-
-    Character c("파이몬", ElementType::Anemo);
-    c.gainExp(2145);
-    c.tryBreakthrough();
-
-    c.saveToJson("character.json");
-
-    Character c2 = Character::loadFromJson("character.json");
-    c2.printStatus();
-
+    
+    GameManager game;
+    game.run(); // 내부에서 로그인 → 메인 메뉴 → 각 기능 루프
     return 0;
 }
